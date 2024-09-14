@@ -23,6 +23,7 @@ namespace RabbitMQ.Sample.DirectExchange
             {
                 var message = $"Message sent: {count++}";
 
+                //Delivers messages based on the routing key
                 publisher.Publish(message);
                 
                 logger.LogInformation("[DirectExchange] Sent {message}", message);

@@ -31,6 +31,7 @@ namespace RabbitMQ.Sample.FanoutExchange.Producer
             {
                 var message = $"Message sent: {count++}";
 
+                //A fanout exchange routes messages to all of the queues that are bound to it and the routing key is ignored
                 publisher.Publish(message);
 
                 logger.LogInformation("[FanoutExchange] Sent {message}", message);
