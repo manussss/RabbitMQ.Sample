@@ -3,7 +3,7 @@ using RabbitMQ.Client.Events;
 using RabbitMQ.Sample.Common.Messaging;
 using System.Text;
 
-namespace RabbitMQ.Sample.DirectExchange.Consumer
+namespace RabbitMQ.Sample.FanoutExchange.Consumer
 {
     public class Worker : BackgroundService
     {
@@ -13,8 +13,8 @@ namespace RabbitMQ.Sample.DirectExchange.Consumer
         private readonly IModel _channel;
 
         public Worker(
-            ILogger<Worker> logger, 
-            ISubscriber subscriber, 
+            ILogger<Worker> logger,
+            ISubscriber subscriber,
             IConfiguration configuration)
         {
             _logger = logger;

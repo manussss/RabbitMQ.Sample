@@ -1,9 +1,9 @@
-using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RabbitMQ.Client;
 using RabbitMQ.Sample.Common.Messaging;
 using System.Text;
 
-namespace RabbitMQ.Sample.DirectExchange.Consumer
+namespace RabbitMQ.Sample.FanoutExchange.Consumer.Two
 {
     public class Worker : BackgroundService
     {
@@ -13,8 +13,8 @@ namespace RabbitMQ.Sample.DirectExchange.Consumer
         private readonly IModel _channel;
 
         public Worker(
-            ILogger<Worker> logger, 
-            ISubscriber subscriber, 
+            ILogger<Worker> logger,
+            ISubscriber subscriber,
             IConfiguration configuration)
         {
             _logger = logger;
@@ -45,7 +45,7 @@ namespace RabbitMQ.Sample.DirectExchange.Consumer
             {
                 var message = Encoding.UTF8.GetString(args.Body.ToArray());
 
-                _logger.LogInformation("Received message: {message}", message);
+                _logger.LogInformation("[Consumer Two] - Received message: {message}", message);
 
                 _channel.BasicAck(args.DeliveryTag, true);
 
