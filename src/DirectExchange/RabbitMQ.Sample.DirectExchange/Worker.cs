@@ -24,6 +24,7 @@ namespace RabbitMQ.Sample.DirectExchange
                 var message = $"Message sent: {count++}";
 
                 //Delivers messages based on the routing key
+                //O roteamento de mensagens é feito com base na chave de roteamento (routing key) exata.
                 publisher.Publish(message);
                 
                 logger.LogInformation("[DirectExchange] Sent {message}", message);
